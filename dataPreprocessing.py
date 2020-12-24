@@ -5,7 +5,7 @@ import numpy as np
 import plotly.graph_objects as go
 
 
-VTargetBuy = pd.read_csv("F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuy.csv")
+VTargetBuy = pd.read_csv("F:/VTargetBuy.csv")
 
 yearly_income = VTargetBuy.values[:,0]
 TotalChildren = VTargetBuy.values[:,1]
@@ -19,7 +19,7 @@ age = VTargetBuy.values[:,7]
 max_income = max(yearly_income)
 min_income = min(yearly_income)
 
-with open('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated.csv', 'a') as newFile:
+with open('F:/VTargetBuyUpdated.csv', 'a') as newFile:
     newFileWriter = csv.writer(newFile)
     brk = [30, 40, 50, 60, 70, 80, 90, 100, 110]
     lbl = (35,45,55,65,75,85,95,105)
@@ -30,7 +30,7 @@ with open('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpda
         yearly_income[i] = (yearly_income[i] - min_income)/(max_income-min_income)
         newFileWriter.writerow([yearly_income[i],TotalChildren[i],NumberChildrenAtHome[i],EnglishOccupation[i],NumberCarsOwned[i],DateFirstPurchase[i],CommuteDistance[i],age[i]])
 
-VTargetBuyUp = pd.read_csv("F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated.csv")
+VTargetBuyUp = pd.read_csv("F:/VTargetBuyUpdated.csv")
 
 yearly = VTargetBuyUp.values[:,0]
 age = VTargetBuyUp.values[:,7]
@@ -119,9 +119,9 @@ VTargetBuyUp['Com2-5'] = new_col
 VTargetBuyUp['Com5-10'] = new_col
 VTargetBuyUp['Com10+'] = new_col
 
-VTargetBuyUp.to_csv('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated_Occ.csv', sep=',')
+VTargetBuyUp.to_csv('F:/VTargetBuyUpdated_Occ.csv', sep=',')
 
-VTargetBuyLat = pd.read_csv('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated_Occ.csv')
+VTargetBuyLat = pd.read_csv('F:/VTargetBuyUpdated_Occ.csv')
 print(VTargetBuyLat.columns)
 
 occ1 = VTargetBuyLat.values[:,9]
@@ -414,4 +414,4 @@ VTargetBuyLat['Com2-5']=com25
 VTargetBuyLat['Com5-10']=com510
 VTargetBuyLat['Com10+']=com10
 
-VTargetBuyLat.to_csv('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated_Occ.csv', sep=',')
+VTargetBuyLat.to_csv('F:/VTargetBuyUpdated_Occ.csv', sep=',')
