@@ -1,2 +1,12 @@
 # Sales-Analysis-of-Adventure-Works-Cycle
 Increase the sales of Adventure Work Cycle by targeting specific customers for a mailing  company with the Marketing department.
+
+# dataPreprocessing.py
+Exporting the table from the SQL server to preprocess the dataset. Preprocessing phases includes: 1) Handling of NULL values 2) Normalization 3) Discretization (Binning/ Histograms) 4) Calculating Mean/ Median/ Standard Deviation to the Ordinal values 5) Random Sampling 6) Binarization. 
+
+# Similarities.py
+Implementation of the Jaccard similarity and creation of custom cosine similarity algorithm on the given Customekey values.
+
+
+
+<img src="https://github.com/nikkas27/University-Selection-System/blob/main/Acc_Stanford_University_maxdepth%3D4_estimators%3D250_randomstate%3D50_criterion%3Dgini.png" width="90%"></img> 
