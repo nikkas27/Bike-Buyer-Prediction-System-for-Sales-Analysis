@@ -9,4 +9,8 @@ Implementation of the Jaccard similarity and creation of custom cosine similarit
 
 
 
-<img src="https://github.com/nikkas27/University-Selection-System/blob/main/Acc_Stanford_University_maxdepth%3D4_estimators%3D250_randomstate%3D50_criterion%3Dgini.png" width="90%"></img> 
+<img src="https://github.com/nikkas27/Sales-Analysis-of-Adventure-Works-Cycle/blob/main/SS16.jpg" width="90%"></img> 
+
+<img src="https://github.com/nikkas27/Sales-Analysis-of-Adventure-Works-Cycle/blob/main/SS8.jpg" width="90%"></img> 
+
+<img src="https://github.com/nikkas27/Sales-Analysis-of-Adventure-Works-Cycle/blob/main/SS_Occu.jpg" width="90%"></img> 
