@@ -46,23 +46,23 @@ def cosine(list1, list2):
         mod_x[i] = list1[i] * list1[i]
         mod_y[i] = list2[i] * list2[i]
 
-    # print(prod)
-    # print(mod_x)
-    # print(mod_y)
+    print(prod)
+    print(mod_x)
+    print(mod_y)
 
     dot_prod = sum(prod)
     mod_sum_x = sum(mod_x)
     mod_sum_y = sum(mod_y)
 
-    # print(mod_sum_x)
-    # print(mod_sum_y)
-    # print(dot_prod)
+    print(mod_sum_x)
+    print(mod_sum_y)
+    print(dot_prod)
 
     sqrt_mod_x = sqrt(mod_sum_x)
     sqrt_mod_y = sqrt(mod_sum_y)
 
-    # print(sqrt_mod_x)
-    # print(sqrt_mod_y)
+    print(sqrt_mod_x)
+    print(sqrt_mod_y)
 
     denominator = sqrt_mod_x * sqrt_mod_y
 
