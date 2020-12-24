@@ -9,33 +9,22 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 
 
-Vtargetbuy = pd.read_csv('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated_Occ.csv')
+Vtargetbuy = pd.read_csv('F:/VTargetBuyUpdated_Occ.csv')
 
-# print(Vtargetbuy)
-# print(Vtargetbuy.columns)
-BikeBuyList = pd.read_csv("F:/Cleveland State University/Fall 19/CIS 660/Assign 1/vTargetMailCustomer.csv", header=0,encoding = 'unicode_escape')
-# print(BikeBuyList.columns)
+BikeBuyList = pd.read_csv("F:/vTargetMailCustomer.csv", header=0,encoding = 'unicode_escape')
 bikebuy = BikeBuyList.values[:,31]
-# print(bikebuy)
 Vtargetbuy['BikeBuy'] = bikebuy
 
-# print(Vtargetbuy.columns)
-
-# Vtargetbuy.to_csv('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated_Occ.csv', sep=',')
-#
-# print(Vtargetbuy.columns)
+Vtargetbuy.to_csv('F:/VTargetBuyUpdated_Occ.csv', sep=',')
 Vtargetbuy.drop(['Unnamed: 0'], 1, inplace=True)
 # Vtargetbuy.drop(['Unnamed: 0.1'], 1, inplace=True)
 Vtargetbuy.drop(['Unnamed: 0.1.1'], 1, inplace=True)
 
 Vtargetbuy.dropna(inplace=True)
 print(Vtargetbuy.isnull().any())
-# Vtargetbuy.to_csv('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated_Occ.csv', sep=',')
 print(Vtargetbuy.columns)
-
 train=Vtargetbuy.values[:,9:34] #Inc = 69.50 and RF: 69.44
 test=Vtargetbuy.values[:,35]
-
 
 y=test.astype('int')
 X=train.astype('int')
