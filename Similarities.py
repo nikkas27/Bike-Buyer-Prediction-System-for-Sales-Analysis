@@ -3,8 +3,8 @@ import pandas as pd
 from math import*
 import nltk
 conn = pyodbc.connect('Driver={SQL Server};'
-                      'Server=LAPTOP-65BJT1KQ;'
-                      'Database=nixdb;'
+                      'Server=XXXXXXXXXX;'
+                      'Database=XXXXX;'
                       'Trusted_Connection=yes;')
 
 print("Database Connected")
@@ -18,7 +18,7 @@ for row in cursor:
 
 cursor.commit()
 
-VTargetBuyLat = pd.read_csv('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated_Occ.csv')
+VTargetBuyLat = pd.read_csv('F:/VTargetBuyUpdated_Occ.csv')
 
 # print(VTargetBuyLat)
 
