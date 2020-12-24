@@ -30,15 +30,15 @@ Random forest is the type of classifier which selects the data from our dataset 
 
 # Accuracy
 
-<img src="https://github.com/nikkas27/Question-Answering-System-for-Webpages-content-Analysis/blob/main/ss1.jpg" width="90%"></img> 
+<img src="https://github.com/nikkas27/Sales-Analysis-of-Adventure-Works-Cycle/blob/main/Results_DecisionTree.png" width="90%"></img> 
 
 # Results of the Algorithms
 
-<img src="https://github.com/nikkas27/Question-Answering-System-for-Webpages-content-Analysis/blob/main/Results_DecisionTree.png" width="90%"></img> 
+<img src="https://github.com/nikkas27/Sales-Analysis-of-Adventure-Works-Cycle/blob/main/Results_DecisionTree.png" width="90%"></img> 
 
-<img src="https://github.com/nikkas27/Question-Answering-System-for-Webpages-content-Analysis/blob/main/Results_RandomForest.png" width="90%"></img> 
+<img src="https://github.com/nikkas27/Sales-Analysis-of-Adventure-Works-Cycle/blob/main/Results_RandomForest.png" width="90%"></img> 
 
 # Importance of Each features associated by the Random Forest Algorithm
 
-<img src="https://github.com/nikkas27/Question-Answering-System-for-Webpages-content-Analysis/blob/main/ss15.jpg" width="90%"></img> 
+<img src="https://github.com/nikkas27/Sales-Analysis-of-Adventure-Works-Cycle/blob/main/ss15.jpg" width="90%"></img> 
 
