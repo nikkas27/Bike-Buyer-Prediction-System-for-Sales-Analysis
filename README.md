@@ -6,8 +6,10 @@ Exporting the table from the SQL server to preprocess the dataset. Preprocessing
 
 # Similarities.py
 Implementation of the Jaccard similarity and creation of custom cosine similarity algorithm on the given Customekey values.
+<img src="https://github.com/nikkas27/Sales-Analysis-of-Adventure-Works-Cycle/blob/main/SS14.jpg" width="90%"></img> 
 
 
+<img src="https://github.com/nikkas27/Sales-Analysis-of-Adventure-Works-Cycle/blob/main/SS15.jpg" width="90%"></img> 
 
 <img src="https://github.com/nikkas27/Sales-Analysis-of-Adventure-Works-Cycle/blob/main/SS16.jpg" width="90%"></img> 
 
