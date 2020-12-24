@@ -2,13 +2,10 @@ import pandas as pd
 import csv
 import random
 import numpy as np
+import plotly.graph_objects as go
 
 
 VTargetBuy = pd.read_csv("F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuy.csv")
-
-#print(VTargetBuy.columns)
-
-# print(VTargetBuy.isnull().any())
 
 yearly_income = VTargetBuy.values[:,0]
 TotalChildren = VTargetBuy.values[:,1]
@@ -19,37 +16,21 @@ DateFirstPurchase = VTargetBuy.values[:,5]
 CommuteDistance = VTargetBuy.values[:,6]
 age = VTargetBuy.values[:,7]
 
-# print(yearly_income)
-# print(age)
 max_income = max(yearly_income)
 min_income = min(yearly_income)
 
-# print("MAX:", max_income, "MIN:", min_income)
+with open('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated.csv', 'a') as newFile:
+    newFileWriter = csv.writer(newFile)
+    brk = [30, 40, 50, 60, 70, 80, 90, 100, 110]
+    lbl = (35,45,55,65,75,85,95,105)
+    age=pd.cut(age,brk,labels=lbl,include_lowest=True)
 
-# with open('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated.csv', 'a') as newFile:
-#     newFileWriter = csv.writer(newFile)
-#     brk = [30, 40, 50, 60, 70, 80, 90, 100, 110]
-#     lbl = (35,45,55,65,75,85,95,105)
-#     age=pd.cut(age,brk,labels=lbl,include_lowest=True)
-#
-#     newFileWriter.writerow(['YearlyIncome','TotalChildren','NumberChildrenAtHome','EnglishOccupation','NumberCarsOwned','DateFirstPurchase','CommuteDistance','Age'])
-#     #
-#     for i in range(len(yearly_income)):
-#         yearly_income[i] = (yearly_income[i] - min_income)/(max_income-min_income)
-#         # print(yearly_income[i])
-#
-#         # print(age[i])
-#         newFileWriter.writerow([yearly_income[i],TotalChildren[i],NumberChildrenAtHome[i],EnglishOccupation[i],NumberCarsOwned[i],DateFirstPurchase[i],CommuteDistance[i],age[i]])
-#
-#
+    newFileWriter.writerow(['YearlyIncome','TotalChildren','NumberChildrenAtHome','EnglishOccupation','NumberCarsOwned','DateFirstPurchase','CommuteDistance','Age'])
+    for i in range(len(yearly_income)):
+        yearly_income[i] = (yearly_income[i] - min_income)/(max_income-min_income)
+        newFileWriter.writerow([yearly_income[i],TotalChildren[i],NumberChildrenAtHome[i],EnglishOccupation[i],NumberCarsOwned[i],DateFirstPurchase[i],CommuteDistance[i],age[i]])
+
 VTargetBuyUp = pd.read_csv("F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated.csv")
-# print(VTargetBuyUp)
-
-
-print(VTargetBuyUp.columns)
-# import numpy as np
-# import matplotlib.mlab as mlab
-# import matplotlib.pyplot as plt
 
 yearly = VTargetBuyUp.values[:,0]
 age = VTargetBuyUp.values[:,7]
@@ -62,41 +43,37 @@ CommDist = VTargetBuyUp.values[:,6]
 # num_bins = 5
 # n, bins, patches = plt.hist(x, num_bins, facecolor='blue', alpha=0.5)
 # plt.show()
-# print(len(yearly))
 
-# import plotly.graph_objects as go
-
-# import numpy as np
 x = yearly
-# ----------------------Income graph-----------------------------
-# fig = go.Figure(data=[go.Histogram(x=x)])
-# py.plot(fig)
+----------------------Income graph-----------------------------
+fig = go.Figure(data=[go.Histogram(x=x)])
+py.plot(fig)
 
-# Layout = go.Layout(paper_bgcolor='rgba(0,0,0,0)',plot_bgcolor='rgba(0,0,0,0)')
+Layout = go.Layout(paper_bgcolor='rgba(0,0,0,0)',plot_bgcolor='rgba(0,0,0,0)')
 
-# ----------------------Age graph-----------------------------
-# fig1 = go.Figure(data=[go.Bar(x=age,y=[j for j in range(len(age))], name='Age')],layout = Layout)
-# py.plot(fig1)
-#
-# ----------------------Total Children graph-----------------------------
-# fig2 = go.Figure(data=[go.Bar(x=child,y=[j for j in range(len(child))], name='Total Children')],layout = Layout)
-# py.plot(fig2)
-#
-# ----------------------Children at home graph-----------------------------
-# fig3 = go.Figure(data=[go.Bar(x=childhome,y=[j for j in range(len(age))], name='CHildren At Home')],layout = Layout)
-# py.plot(fig3)
-#
-## ----------------------Cars owned graph-----------------------------
-# fig4 = go.Figure(data=[go.Bar(x=CarsOwned,y=[j for j in range(len(CarsOwned))], name='Cars Owned')],layout = Layout)
-# py.plot(fig4)
-#
-# ----------------------Commute Distance graph-----------------------------
-# fig5 = go.Figure(data=[go.Bar(x=CommDist,y=[j for j in range(len(CommDist))], name='Commute Distance')],layout = Layout)
-# py.plot(fig5)
-#
-# ----------------------Occupation graph-----------------------------
-# values = occupation
-#
+----------------------Age graph-----------------------------
+fig1 = go.Figure(data=[go.Bar(x=age,y=[j for j in range(len(age))], name='Age')],layout = Layout)
+py.plot(fig1)
+
+----------------------Total Children graph-----------------------------
+fig2 = go.Figure(data=[go.Bar(x=child,y=[j for j in range(len(child))], name='Total Children')],layout = Layout)
+py.plot(fig2)
+
+----------------------Children at home graph-----------------------------
+fig3 = go.Figure(data=[go.Bar(x=childhome,y=[j for j in range(len(age))], name='CHildren At Home')],layout = Layout)
+py.plot(fig3)
+
+# ----------------------Cars owned graph-----------------------------
+fig4 = go.Figure(data=[go.Bar(x=CarsOwned,y=[j for j in range(len(CarsOwned))], name='Cars Owned')],layout = Layout)
+py.plot(fig4)
+
+----------------------Commute Distance graph-----------------------------
+fig5 = go.Figure(data=[go.Bar(x=CommDist,y=[j for j in range(len(CommDist))], name='Commute Distance')],layout = Layout)
+py.plot(fig5)
+
+----------------------Occupation graph-----------------------------
+values = occupation
+
 # # Use `hole` to create a donut-like pie chart
 # fig6 = go.Figure(data=[go.Pie(values=values, hole=.3)])
 # py.plot(fig6)
@@ -142,13 +119,9 @@ VTargetBuyUp['Com2-5'] = new_col
 VTargetBuyUp['Com5-10'] = new_col
 VTargetBuyUp['Com10+'] = new_col
 
-
-
 VTargetBuyUp.to_csv('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated_Occ.csv', sep=',')
 
 VTargetBuyLat = pd.read_csv('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated_Occ.csv')
-
-
 print(VTargetBuyLat.columns)
 
 occ1 = VTargetBuyLat.values[:,9]
@@ -178,19 +151,13 @@ com25 = VTargetBuyLat.values[:,32]
 com510 = VTargetBuyLat.values[:,33]
 com10 = VTargetBuyLat.values[:,34]
 
-
-#print(occupation)
-# print(VTargetBuyUp.columns)
-
 for i in range(len(occupation)):
-    # print(occupation[i])
     if occupation[i] == 'Professional':
         occ1[i] = '1'
         occ2[i] = '0'
         occ3[i] = '0'
         occ4[i] = '0'
         occ5[i] = '0'
-
     elif occupation[i] == 'Manual':
         occ1[i] = '0'
         occ2[i] = '1'
@@ -223,19 +190,14 @@ for i in range(len(occupation)):
         occ4[i] = ''
         occ5[i] = ''
 
-
 print("Success!")
-# print(occ1,occ2,occ3,occ4,occ5)
 VTargetBuyLat['O1']=occ1
 VTargetBuyLat['O2']=occ2
 VTargetBuyLat['O3']=occ3
 VTargetBuyLat['O4']=occ4
 VTargetBuyLat['O5']=occ5
-# print(VTargetBuyLat)
 
 print("---------------------------Income------------------------------")
-
-
 for i in range(len(yearly)):
     # print(yearly[i])
     if 0< yearly[i] <= 0.2:
@@ -244,7 +206,6 @@ for i in range(len(yearly)):
         inc3[i] = '0'
         inc4[i] = '0'
         inc5[i] = '0'
-
     elif 0.2< yearly[i] <= 0.4:
         inc1[i] = '0'
         inc2[i] = '1'
@@ -277,20 +238,15 @@ for i in range(len(yearly)):
         inc4[i] = ''
         inc5[i] = ''
 
-
 print("Success!")
-# print(inc1,inc2,inc3,inc4,inc5)
+
 VTargetBuyLat['Inc1']=inc1
 VTargetBuyLat['Inc2']=inc2
 VTargetBuyLat['Inc3']=inc3
 VTargetBuyLat['Inc4']=inc4
 VTargetBuyLat['Inc5']=inc5
 
-# print(VTargetBuyLat)
-
 print("-----------------------Total CHildren----------------------")
-
-
 for i in range(len(child)):
     print(child[i])
     if child[i] == 0:
@@ -300,7 +256,6 @@ for i in range(len(child)):
         child3[i] = '0'
         child4[i] = '0'
         child5[i] = '0'
-
     elif child[i] == 1:
         child0[i] = '0'
         child1[i] = '1'
@@ -308,7 +263,6 @@ for i in range(len(child)):
         child3[i] = '0'
         child4[i] = '0'
         child5[i] = '0'
-
     elif child[i] == 2:
         child0[i] = '0'
         child1[i] = '0'
@@ -316,7 +270,6 @@ for i in range(len(child)):
         child3[i] = '0'
         child4[i] = '0'
         child5[i] = '0'
-
     elif child[i] == 3:
         child0[i] = '0'
         child1[i] = '0'
@@ -324,7 +277,6 @@ for i in range(len(child)):
         child3[i] = '1'
         child4[i] = '0'
         child5[i] = '0'
-
     elif child[i] == 4:
         child0[i] = '0'
         child1[i] = '0'
@@ -332,7 +284,6 @@ for i in range(len(child)):
         child3[i] = '0'
         child4[i] = '1'
         child5[i] = '0'
-
     elif child[i] == 5:
         child0[i] = '0'
         child1[i] = '0'
@@ -340,7 +291,6 @@ for i in range(len(child)):
         child3[i] = '0'
         child4[i] = '0'
         child5[i] = '1'
-
     else:
         print("Error occured while inserting data...")
         child0[i] = ''
@@ -349,10 +299,7 @@ for i in range(len(child)):
         child3[i] = ''
         child4[i] = ''
         child5[i] = ''
-
-
 print("Success!")
-# print(child1,child2,child3,child4,child5)
 
 VTargetBuyLat['Child0']=child0
 VTargetBuyLat['Child1']=child1
@@ -361,11 +308,7 @@ VTargetBuyLat['Child3']=child3
 VTargetBuyLat['Child4']=child4
 VTargetBuyLat['Child5']=child5
 
-
-
 print("-----------------------Cars Owned----------------------")
-
-
 for i in range(len(CarsOwned)):
     print(CarsOwned[i])
     if CarsOwned[i] == 0:
@@ -423,8 +366,6 @@ VTargetBuyLat['Car3']=car3
 VTargetBuyLat['Car4']=car4
 
 print("---------------------------Commute Distance------------------------------")
-
-
 for i in range(len(CommuteDistance)):
     # print(CommuteDistance[i])
     if CommuteDistance[i] == '0-1 Miles':
@@ -466,16 +407,11 @@ for i in range(len(CommuteDistance)):
         inc4[i] = ''
         inc5[i] = ''
 
-
 print("Success!")
-# print(inc1,inc2,inc3,inc4,inc5)
 VTargetBuyLat['Com0-1']=com01
 VTargetBuyLat['Com1-2']=com12
 VTargetBuyLat['Com2-5']=com25
 VTargetBuyLat['Com5-10']=com510
 VTargetBuyLat['Com10+']=com10
 
-
-
 VTargetBuyLat.to_csv('F:/Cleveland State University/Fall 19/CIS 660/Assign 1/VTargetBuyUpdated_Occ.csv', sep=',')
-    # print(VTargetBuyLat.values[:,10])
